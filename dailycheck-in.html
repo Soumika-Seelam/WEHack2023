@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple website</title>
+        <!--<link rel="stylesheet" href="main.css">-->
+        <title>WEHack2023</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <script src="https://kit.fontawesome.com/d8e9f11883.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <a href="#"class="logo">Logo</a>
+                <nav>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="dailycheck-in.html">Daily Check-In</a></li>
+                        <li><a href="play.html">Play</a></li>
+                        <li><a href="walkthrough.html">Walkthrough</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </nav>
+        </header>
+        
+        <div class="wrapper">
+            <div class="section">
+              <ul class="emojis">
+                <li class="slide-emoji"><img src="emojis/emoji-1.png" alt=""></li>
+                <li><img src="emojis/emoji-2.png" alt=""></li>
+                <li><img src="emojis/emoji-3.png" alt=""></li>
+                <li><img src="emojis/emoji-4.png" alt=""></li>
+                <li><img src="emojis/emoji-5.png" alt=""></li>
+              </ul>
+            </div>
+            <div class="slider">
+              <div class="thumb"><span></span></div>
+              <div class="progress-bar"></div>
+              <input type="range" min="0" value="0" max="100">
+            </div>
+          </div>
+          <script>
+            const body = document.querySelector("body");
+            const emoji = document.querySelector(".slide-emoji");
+            const input = document.querySelector("input");
+            const bar = document.querySelector(".progress-bar");
+            const thumb = document.querySelector(".thumb");
+            input.oninput = ()=>{
+              let sliderValue = input.value;
+              thumb.style.left = sliderValue + '%';
+              bar.style.width = sliderValue + '%';
+              if(sliderValue < 20){
+                emoji.style.marginTop = "0px";
+                body.classList.add("angry");
+                body.classList.remove("confuse");
+                body.classList.remove("like");
+              }
+              if(sliderValue >= 20){
+                emoji.style.marginTop = "-140px";
+                body.classList.add("confuse");
+                body.classList.remove("angry");
+                body.classList.remove("like");
+              }
+              if(sliderValue >= 40){
+                emoji.style.marginTop = "-280px";
+              }
+              if(sliderValue >= 60){
+                emoji.style.marginTop = "-420px";
+                body.classList.add("like");
+                body.classList.remove("confuse");
+                body.classList.remove("angry");
+              }
+              if(sliderValue >= 80){
+                emoji.style.marginTop = "-560px";
+              }
+            }
+          </script>
+        
+    </body>
+</html>
